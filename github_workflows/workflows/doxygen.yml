@@ -4,9 +4,6 @@ on:
   push:
     branches: 
     - master
-  pull_request:
-    branches: 
-    - master
 
 permissions:
   pages: write
@@ -53,7 +50,7 @@ jobs:
         run: ${{ env.DOXYGEN_EXE_PATH }} ${{ github.workspace }}\devops_data\Doxyfile
         
       - name: Upload Docs
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: Documentation\html
         
