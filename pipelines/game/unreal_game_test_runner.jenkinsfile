@@ -109,10 +109,10 @@ pipeline {
         }
         stage('Publish test results') {
             environment {
-                CONVERTER_PATH="$BUILD_DIR\\devops_ue\\tests\\ue_report_to_junit.py"
+                CONVERTER_PATH=python "$BUILD_DIR\\devops_ue\\tests\\ue_report_to_junit.py"
                 UE_TESTS_PATH="$BUILD_DIR\\Build\\Tests\\index.json"
                 JUNIT_TESTS_PATH="$BUILD_DIR\\Build\\Tests\\index.xml"
-                COBERTURA_PATCHER_PATH="$BUILD_DIR\\devops_ue\\tests\\cobertura_report_patcher.py"
+                COBERTURA_PATCHER_PATH=python "$BUILD_DIR\\devops_ue\\tests\\cobertura_report_patcher.py"
                 CODE_COVERAGE_PATH="$BUILD_DIR\\Build\\Tests\\Coverage.xml"
             }
             steps {
